@@ -12,5 +12,12 @@ public class SumTest {
 		assertEquals(test.sum(1,2), 3l);
 		assertEquals(test.sum(0,0), 0l);
 	}
+	
+	@Test
+	public void testSum2() {
+		SumUtils test = new SumUtils();
+		assertEquals(test.sum(1,2), 3l);
+		assertEquals(test.sum(0,0), 0l);
+	}
 
 }
