@@ -9,6 +9,12 @@ pipeline{
         maven "M3"
     }
     
+    environment {
+      PATH_SONAR = tool"sonarqube-scanner"
+      PROJECT_KEY = "sonar_pilot"
+      EXCLUSIONS = "**/util/**,**/exception/**"       
+    }
+    
 
     stages{
         stage('Build') {
@@ -26,6 +32,21 @@ pipeline{
               mvn test -U -X
               mvn clean
               '''
+            }
+        }
+        stage('SonarQube') {    
+            agent any   
+            steps {
+              withSonarQubeEnv("sonarqube-scanner") {
+                sh "${PATH_SONAR}/bin/sonar-scanner \
+                -Dsonar.projectKey=${PROJECT_KEY} \
+                -Dsonar.projectVersion=1 \
+                -Dsonar.scm.disabled=true \
+                -Dsonar.exclusions=${EXCLUSIONS} \
+                -Dsonar.sources=src \                
+				-Dsonar.java.libraries=$HOME/.m2/**/*.jar \
+                -Dsonar.sourceEncoding=UTF-8"
+              }                       
             }
         }       
     }
