@@ -95,9 +95,9 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
-                        <configuration>
+                        <!--<configuration>
                             <dataFile>${basedir}/jacoco.exec</dataFile>
-                        </configuration>
+                        </configuration>-->
                     </execution>
                 </executions>
             </plugin>
