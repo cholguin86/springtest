@@ -37,7 +37,10 @@ pipeline{
         stage('SonarQube') {    
             agent any   
             steps {
-              withSonarQubeEnv("sonarqube-scanner") {
+              sh '''              
+              mvn verify
+              '''
+			  withSonarQubeEnv("sonarqube-scanner") {
                 sh "${PATH_SONAR}/bin/sonar-scanner \
                 -Dsonar.projectKey=${PROJECT_KEY} \
                 -Dsonar.projectVersion=1 \
