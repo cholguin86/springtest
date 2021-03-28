@@ -30,7 +30,7 @@ pipeline{
             steps {
               echo "Building..."
               sh '''              
-              mvn test -U -X              
+              mvn test -U -X
               '''
             }
         }

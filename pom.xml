@@ -88,10 +88,10 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
-                    </execution>
+                    </execution>					
                     <execution>
                         <id>jacoco-site</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
