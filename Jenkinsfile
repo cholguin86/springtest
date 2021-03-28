@@ -47,6 +47,7 @@ pipeline{
                 -Dsonar.sources=src \
 				-Dsonar.java.libraries=$HOME/.m2/**/*.jar \
 				-Dsonar.java.binaries=${BINARIES} \
+				-Dsonar.jacoco.reportPaths=target/jacoco.exec \
                 -Dsonar.sourceEncoding=UTF-8"
               }                       
             }
