@@ -11,8 +11,7 @@ pipeline{
     
     environment {
       PATH_SONAR = tool"sonarqube-scanner"
-      PROJECT_KEY = "sonar_pilot"
-      EXCLUSIONS = "**/util/**,**/exception/**" 
+      PROJECT_KEY = "sonar_pilot"      
 	  BINARIES = "./src/main"      
     }
     
@@ -44,8 +43,7 @@ pipeline{
                 sh "${PATH_SONAR}/bin/sonar-scanner \
                 -Dsonar.projectKey=${PROJECT_KEY} \
                 -Dsonar.projectVersion=1 \
-                -Dsonar.scm.disabled=true \
-                -Dsonar.exclusions=${EXCLUSIONS} \
+                -Dsonar.scm.disabled=true \                
                 -Dsonar.sources=src \
 				-Dsonar.java.libraries=$HOME/.m2/**/*.jar \
 				-Dsonar.java.binaries=${BINARIES} \
