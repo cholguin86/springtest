@@ -11,7 +11,8 @@ pipeline{
     
     environment {
       PATH_SONAR = tool"sonarqube-scanner"
-      PROJECT_KEY = "sonar_pilot"      
+      PROJECT_KEY = "sonar_pilot"
+      EXCLUSIONS = "**/JenkinsSampleApplication.java,**/*Test.java" 
 	  BINARIES = "./src/main"      
     }
     
@@ -44,6 +45,7 @@ pipeline{
                 -Dsonar.projectKey=${PROJECT_KEY} \
                 -Dsonar.projectVersion=1 \
                 -Dsonar.scm.disabled=true \
+                -Dsonar.exclusions=${EXCLUSIONS} \
                 -Dsonar.sources=src \
 				-Dsonar.java.libraries=$HOME/.m2/**/*.jar \
 				-Dsonar.java.binaries=${BINARIES} \
