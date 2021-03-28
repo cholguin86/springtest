@@ -43,7 +43,7 @@ pipeline{
                 -Dsonar.projectVersion=1 \
                 -Dsonar.scm.disabled=true \
                 -Dsonar.exclusions=${EXCLUSIONS} \
-                -Dsonar.sources=src \                
+                -Dsonar.sources=src \
 				-Dsonar.java.libraries=$HOME/.m2/**/*.jar \
                 -Dsonar.sourceEncoding=UTF-8"
               }                       
